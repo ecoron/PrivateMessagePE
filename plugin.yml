@@ -1,0 +1,19 @@
+name: PrivateMessagePE
+main: PrivateMessagePE\Main
+version: 1.0
+api: [1.12.0]
+
+load: POSTWORLD
+author: ecoron
+description: pm for the op
+website: https://github.com/ecoron/PrivateMessagePE
+commands:
+ pm:
+  description: write a pm to the op, message will be saved, for later to read
+  usage: "/pm"
+  aliases: [pm, mail]
+  permission: pm.command
+permissions:
+ pm.command:
+  description: "Allows the user to write a pm"
+  default: op
