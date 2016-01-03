@@ -33,7 +33,7 @@ class Main extends PluginBase{
             }
 
             $playerName = $sender->getName();
-            $text = utf8_encode(chop(trim(implode(" ", $args))));
+            $text = chop(trim(implode(" ", $args)));
 
             $message = json_encode(array(
                 "playerName" => $playerName,
