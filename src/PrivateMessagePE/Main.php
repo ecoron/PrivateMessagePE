@@ -20,7 +20,7 @@ class Main extends PluginBase{
     public function onCommand(CommandSender $sender, Command $command, $label, array $args){
         if(strtolower($command->getName()) === "pm"){
             if(!($sender instanceof Player)){
-                $sender->sendMessage(TextFormat::AQUA."Please run this command in game");
+                $sender->sendMessage("Please run this command in game");
                 return true;
             }
             if(!$sender->hasPermission("pm.command")){
@@ -33,7 +33,7 @@ class Main extends PluginBase{
             }
 
             $playerName = $sender->getName();
-            $text = \addslashes(chop(trim($args[0])));
+            $text = utf8_encode(chop(trim(implode(" ", $args[0]))));
 
             $message = json_encode(array(
                 "playerName" => $playerName,
@@ -43,7 +43,7 @@ class Main extends PluginBase{
 
             $this->saveMessage($message);
 
-            $sender->sendMessage(TextFormat::AQUA."PM written. OP will read it later");
+            $sender->sendMessage("PM written. OP will read it later");
         }
         return true;
     }
